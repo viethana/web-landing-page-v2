@@ -1,14 +1,39 @@
-'use client'
+"use client";
 
-import LpNavbar from './Navbar'
-import LpFooter from './Footer'
-import Image from 'next/image'
+import LpNavbar from "./Navbar";
+import LpFooter from "./Footer";
+import Image from "next/image";
+import { useState } from "react";
+
+const AccordionItem = ({ title, content }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-gray-700 py-4">
+      <div
+        className="flex justify-between items-center cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3 className="text-white text-base font-medium">{title}</h3>
+        <span className="text-white text-xl">
+          {isOpen ? "−" : "+"}
+        </span>
+      </div>
+
+      {isOpen && (
+        <p className="text-gray-400 mt-2 text-sm">
+          {content}
+        </p>
+      )}
+    </div>
+  );
+};
 
 const LpDocsPage = () => {
   return (
     <div className="DocsPage min-h-screen flex flex-col">
       <LpNavbar />
-      <main className="min-h-screen bg-[#0a0f1d] text-white flex items-center justify-center px-4 mt-[80px] mb-[24px]">
+      <main className="min-h-[400px] bg-[#0a0f1d] text-white flex items-center justify-center px-4 md:mt-[80px]">
         <div className="text-center  space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             <span className="relative inline-block pt-[120px] pb-[40px]">
@@ -35,7 +60,7 @@ const LpDocsPage = () => {
             <div className="learn-more-btn-wrapper bg-gradient-to-r from-[#473f62] to-[#3f74c5] rounded-lg p-[2px] inline-block hover:from-[#5A4F7A] hover:to-[#4F8AD0] transition-all duration-200">
               <button className="learn-more-btn bg-gradient-to-r from-[#39284E] to-[#002D62] rounded-lg px-6 h-11 text-white font-medium transition-all duration-200 hover:from-[#4A2D5A] hover:to-[#003D7A] flex items-center gap-2 mx-auto cursor-pointer">
                 <span>
-                  {' '}
+                  {" "}
                   Learn more
                   {/* &rarr; */}
                 </span>
@@ -63,9 +88,9 @@ const LpDocsPage = () => {
             </div>
           </div>
           <div className="mt-[20px]  ">
-            <div className="flex justify-center items-center  bg-gray-900 cursor-pointer">
-              <div className="w-[670px] h-[56px] bg-gray-800 rounded-full flex justify-center items-center shadow-lg">
-                <button className="px-8 py-3 bg-gray-700 rounded-full text-white font-medium text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            <div className="flex justify-center items-center cursor-pointer">
+              <div className="w-[670px] h-[56px] bg-gray-800 border border-solid border-[#FFFFFF4D] rounded-full flex justify-center items-center shadow-lg">
+                <button className="h-[44px] flex items-center justify-center px-8 py-3 border border-solid border-[#4C5562] bg-[#000000]/50 rounded-full text-white font-medium text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                   Two-factor Authentiation
                 </button>
               </div>
@@ -73,7 +98,7 @@ const LpDocsPage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-[#0a0f1d] px-4 py-20 text-white">
+      <section className="bg-[#0a0f1d] px-4 py-4 md:py-20 text-white">
         <div className="max-w-5xl mx-auto text-center space-y-6">
           <h2 className="text-2xl lg:text-3xl xl:text-[64px] font-bold">
             <div>Ironclad protection for</div>
@@ -95,13 +120,13 @@ const LpDocsPage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-[#0a0f1d] pb-20  pt-12 px-4 text-white">
-        <div className="flex flex-col items-center justify-center min-h-screen  text-white p-4">
-          <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <section className="bg-[#0a0f1d] p-0 md:pb-20 pt-12 px-4 text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen text-white p-4">
+          <div className="hidden w-full max-w-7xl xl:grid grid-cols-1 xl:grid-cols-3 gap-6 overflow-hidden">
             <div className="lg:col-span-1 flex flex-col space-y-6">
               <div className="rounded-xl shadow-xl flex flex-col flex-1">
                 <Image
-                  src="/lp/omslide2.png"
+                  src="/lp/mfa.svg"
                   alt="Ảnh 2FA"
                   objectFit="cover"
                   className="rounded-lg"
@@ -111,7 +136,7 @@ const LpDocsPage = () => {
               </div>
               <div className="rounded-xl shadow-xl flex flex-col flex-1">
                 <Image
-                  src="/lp/omslide3.png"
+                  src="/lp/protection.svg"
                   alt="Ảnh Restrictions & Attack Protection"
                   objectFit="cover"
                   className="rounded-lg"
@@ -122,129 +147,127 @@ const LpDocsPage = () => {
             </div>
             <div className="lg:col-span-2 flex flex-col">
               <div className="rounded-xl shadow-xl flex flex-col h-[800px]">
-                <div className="relative h-full rounded-lg">
+                <div className="relative h-full rounded-lg mt-[-100px]">
                   <Image
-                    src="/lp/omslide4.png"
+                    src="/lp/card.svg"
                     alt="Ảnh OneAuxilia"
                     layout="fill"
-                    objectFit="cover"
                     className="rounded-lg"
                   />
                 </div>
               </div>
-              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 mt-[-150px]">
                 <div className="relative h-full rounded-lg">
                   <Image
-                    src="/lp/omslide5.png"
+                    src="/lp/sso.svg"
                     alt="Ảnh Social Sign-on"
                     layout="fill"
-                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="relative h-full rounded-lg">
+                  <Image
+                    src="/lp/session.svg"
+                    alt="Ảnh Social Sign-on"
+                    layout="fill"
                     className="rounded-lg"
                   />
                 </div>
               </div>
             </div>
           </div>
+          <div className="hidden xl:hidden w-full max-w-7xl md:grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
+            <div className="md:col-span-2 flex flex-col space-y-6">
+              <img src="/lp/card.svg" alt="Ảnh OneAuxilia" />
+            </div>
+            <div className="md:col-span-2 flex flex-col space-y-6">
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="relative h-full rounded-lg">
+                  <img src="/lp/mfa.svg" alt="Ảnh Social Sign-on" />
+                </div>
+                <div className="relative h-full rounded-lg">
+                  <img src="/lp/protection.svg" alt="Ảnh Social Sign-on" />
+                </div>
+              </div>
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="relative h-full rounded-lg">
+                  <img src="/lp/sso_1.svg" alt="Ảnh Social Sign-on" />
+                </div>
+                <div className="relative h-full rounded-lg">
+                  <img src="/lp/session_1.svg" alt="Ảnh Social Sign-on" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid w-full max-w-7xl md:hidden grid-cols-1 gap-6 overflow-hidden">
+            <img src="/lp/card.svg" alt="Ảnh OneAuxilia" />
+            <div className="relative h-full rounded-lg">
+              <img src="/lp/mfa.svg" alt="Ảnh Social Sign-on" className="w-full"/>
+            </div>
+            <div className="relative h-full rounded-lg">
+              <img src="/lp/protection.svg" alt="Ảnh Social Sign-on" className="w-full" />
+            </div>
+            <div className="relative h-full rounded-lg">
+              <img src="/lp/sso_1.svg" alt="Ảnh Social Sign-on" className="w-full" />
+            </div>
+            <div className="relative h-full rounded-lg">
+              <img src="/lp/session_1.svg" alt="Ảnh Social Sign-on" className="w-full" />
+            </div>
+          </div>
         </div>
       </section>
-      <section className="relative bg-[#0a0f1d] text-white py-24 px-4 overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Comprehensive SDK Support for Seamless Integration
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
-            Easily integrate OneAuxilia’s features with our detailed SDKs,
-            including documentation, libraries, and code samples for efficient
-            implementation.
-          </p>
-        </div>
+      <section className="relative bg-[#0a0f1d] text-white p-0 md:py-24 px-4 overflow-hidden">
+        <div className="max-w-5xl max-h-[700px] mx-auto text-center space-y-4">
+          <img
+            src="/lp/sdk_section_1280.svg"
+            alt="SDK Integration"
+            className="hidden xl:block mx-auto"
+          />
 
-        <div className="relative w-full h-[400px] mt-12">
           <img
-            src="/sdk-ring.png"
-            alt="SDK Ring"
-            className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-          />
-          <img
-            src="/sdk-python.png"
-            alt="Python"
-            className="absolute top-12 left-[25%] w-10 h-10"
-          />
-          <img
-            src="/sdk-react.png"
-            alt="React"
-            className="absolute bottom-8 left-[20%] w-10 h-10"
-          />
-          <img
-            src="/sdk-node.png"
-            alt="NodeJS"
-            className="absolute top-10 right-[25%] w-10 h-10"
-          />
-          <img
-            src="/sdk-php.png"
-            alt="PHP"
-            className="absolute bottom-8 right-[20%] w-10 h-10"
-          />
-          <img
-            src="/sdk-angular.png"
-            alt="Angular"
-            className="absolute top-[40%] left-4 w-10 h-10"
-          />
-          <img
-            src="/sdk-css.png"
-            alt="CSS3"
-            className="absolute top-[40%] right-4 w-10 h-10"
-          />
-          <img
-            src="/sdk-center.png"
-            alt="OneAuxilia"
-            className="absolute inset-0 m-auto w-20 h-20"
+            src="/lp/sdk_section.svg"
+            alt="SDK Integration Mobile"
+            className="block xl:hidden mx-auto"
           />
         </div>
 
         {/* Multi-tenancy */}
-        <div className="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-8 items-center">
+        <div className="cta-section max-w-4xl mx-auto px-5 py-16 text-center">
+          <div className="cta-title text-[36px] xl:text-[64px] font-semibold text-white mb-6">
+            The Easy Solution to Multi-tenancy
+          </div>
+          <p className="cta-description text-[18px] xl:text-[20px] font-normal text-[#CCCCCC] mb-8 max-w-2xl mx-auto">
+            OneAuxilia has all the features you need to onboard and manage the
+            users and organizations of your multi-tenant SaaS application.
+          </p>
+        </div>
+        <div className="max-w-6xl mx-auto md:mt-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">
-              The Easy Solution to Multi-tenancy
-            </h3>
-            <p className="text-gray-300 text-sm sm:text-base">
-              OneAuxilia has all the features you need to onboard and manage the
-              users and organizations of your multi-tenant SaaS application.
-            </p>
-            <ul className="list-none mt-6 space-y-3 text-left text-sm sm:text-base">
-              <li>
-                <span className="font-medium text-white">
-                  Custom Roles and Permissions
-                </span>
-                <br />
-                <span className="text-gray-400">
-                  Powerful primitives to fully customize your app’s
-                  authorization story.
-                </span>
-              </li>
-              <li>
-                <span className="font-medium text-white">
-                  Organization UI Components
-                </span>
-              </li>
-              <li>
-                <span className="font-medium text-white">
-                  Organization (Multi-tenancy)
-                </span>
-              </li>
-            </ul>
+            <div className="max-w-md mx-auto bg-transparent p-4 rounded-md space-y-2">
+              <AccordionItem
+                title="Custom Roles and Permissions"
+                content="Powerful primitives to fully customize your app's authorization story."
+              />
+              <AccordionItem
+                title="Organization UI Components"
+                content="Prebuilt UI elements to manage organizations in your app."
+              />
+              <AccordionItem
+                title="Organization (Multi-tenancy)"
+                content="Support for multiple organizations and tenants in one platform."
+              />
+            </div>
           </div>
           <div>
             <img
-              src="/multitenant-ui.png"
+              src="/lp/multi_card.svg"
               alt="Multi-Tenant Settings UI"
               className="rounded-lg border border-gray-600 w-full max-w-md mx-auto"
             />
           </div>
         </div>
       </section>
-      <section className="bg-[#0b101f] text-white py-24 px-6">
+      <section className="bg-[#0b101f] text-white md:py-24 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold">
             Fine Gain Access Control & Permission
@@ -259,9 +282,9 @@ const LpDocsPage = () => {
           {/* Left - UI */}
           <div className="bg-gradient-to-br from-[#1a1d2e] to-[#1a1c24] rounded-xl p-6">
             <img
-              src="/access-control-ui.png"
-              alt="Access Control UI"
-              className="rounded-lg w-full"
+              src="/lp/multi_card_1.svg"
+              alt="Multi-Tenant Settings UI"
+              className="rounded-lg border border-gray-600 w-full max-w-md mx-auto"
             />
             <div className="mt-6">
               <h3 className="text-lg font-semibold">
@@ -277,9 +300,9 @@ const LpDocsPage = () => {
           {/* Right - Graph */}
           <div className="bg-gradient-to-br from-[#1a1d2e] to-[#1a1c24] rounded-xl p-6">
             <img
-              src="/access-control-graph.png"
-              alt="Role Graph"
-              className="rounded-lg w-full"
+              src="/lp/multi_card_2.svg"
+              alt="Multi-Tenant Settings UI"
+              className="rounded-lg border border-gray-600 w-full max-w-md mx-auto"
             />
             <div className="mt-6">
               <h3 className="text-lg font-semibold">
@@ -293,10 +316,13 @@ const LpDocsPage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-[#0b101f] text-white py-24 px-6 text-center">
-        {/* Header */}
-        <h2 className="text-4xl font-bold">Everything You Need</h2>
 
+      <section className="bg-[#0b101f] text-white py-10 px-6 text-center">
+        <div className="cta-section max-w-4xl mx-auto px-5 py-2 text-center">
+          <div className="cta-title text-[36px] xl:text-[64px] font-semibold text-white mb-4">
+            Everything You Need
+          </div>
+        </div>
         {/* Scroll Selector */}
         <div className="relative mt-12 flex flex-col items-center">
           <button className="text-white text-xl mb-4">&#9650;</button>
@@ -331,7 +357,7 @@ const LpDocsPage = () => {
       </section>
       <LpFooter />
     </div>
-  )
-}
+  );
+};
 
-export default LpDocsPage
+export default LpDocsPage;

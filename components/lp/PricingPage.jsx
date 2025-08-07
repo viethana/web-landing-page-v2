@@ -135,7 +135,7 @@ const LpPricingPage = () => {
             </div>
 
             {/* Pricing Cards */}
-            <div className="pricing-cards grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="max-w-[1240px] pricing-cards grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto">
               {/* Pay as you go Card - Enterprise */}
               <div className={`pricing-card backdrop-blur-sm border rounded-lg p-8 ${activeTab === 'enterprise' ? 'bg-[#FFF]/10 border-[#FFF]/1' : 'bg-[#000000]/50 border-[#000000]/5'}`}>
                 <div className="card-header text-center mb-8">
@@ -235,7 +235,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('monthlyActiveUsers', pricingData.monthlyActiveUsers - 1000)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -243,11 +243,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.monthlyActiveUsers}
                           onChange={(e) => handleInputChange('monthlyActiveUsers', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('monthlyActiveUsers', pricingData.monthlyActiveUsers + 1000)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
@@ -262,7 +262,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('m2mTokens', pricingData.m2mTokens - 100)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -270,11 +270,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.m2mTokens}
                           onChange={(e) => handleInputChange('m2mTokens', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('m2mTokens', pricingData.m2mTokens + 100)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
@@ -289,7 +289,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('applications', pricingData.applications - 10)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -297,11 +297,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.applications}
                           onChange={(e) => handleInputChange('applications', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('applications', pricingData.applications + 10)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
@@ -316,7 +316,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('ssoConnections', pricingData.ssoConnections - 1)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -324,11 +324,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.ssoConnections}
                           onChange={(e) => handleInputChange('ssoConnections', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('ssoConnections', pricingData.ssoConnections + 1)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
@@ -343,7 +343,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('organizations', pricingData.organizations - 10)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -351,11 +351,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.organizations}
                           onChange={(e) => handleInputChange('organizations', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('organizations', pricingData.organizations + 10)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
@@ -370,7 +370,7 @@ const LpPricingPage = () => {
                       <div className="input-wrapper flex items-center gap-2">
                         <button
                           onClick={() => handleInputChange('scimConnections', pricingData.scimConnections - 1)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           -
                         </button>
@@ -378,11 +378,11 @@ const LpPricingPage = () => {
                           type="number"
                           value={pricingData.scimConnections}
                           onChange={(e) => handleInputChange('scimConnections', parseInt(e.target.value) || 0)}
-                          className="input-field flex-1 px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
+                          className="input-field flex-1 min-w-[80px] px-3 py-2 bg-[#1A1A1A] border border-[#333333] rounded text-white text-center"
                         />
                         <button
                           onClick={() => handleInputChange('scimConnections', pricingData.scimConnections + 1)}
-                          className="input-btn w-8 h-8 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
+                          className="input-btn w-8 h-8 min-w-[32px] flex-shrink-0 bg-[#333333] border border-[#666666] rounded flex items-center justify-center text-white hover:bg-[#444444] transition-colors duration-200"
                         >
                           +
                         </button>
